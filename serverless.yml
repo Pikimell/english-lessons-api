@@ -17,34 +17,200 @@ provider:
   timeout: 20
 
 functions:
-  templateGet:
-    handler: src/handlers/templates/getTemplateHandler.getTemplateHandler
+  #================ Appointment Functions ================
+  createAppointment:
+    handler: src/handlers/appointmentHandler.createAppointmentHandler
     events:
       - http:
-          path: template
-          method: get
-          cors: true
-
-  templatePost:
-    handler: src/handlers/templates/createTemplateHandler.createTemplateHandler
-    events:
-      - http:
-          path: templates
+          path: appointment
           method: post
           cors: true
 
-  templatePut:
-    handler: src/handlers/templates/putTemplateHandler.putTemplateHandler
+  getAppointment:
+    handler: src/handlers/appointmentHandler.getAppointmentHandler
     events:
       - http:
-          path: templates/{templateId}
+          path: appointment/{id}
+          method: get
+          cors: true
+
+  updateAppointment:
+    handler: src/handlers/appointmentHandler.updateAppointmentHandler
+    events:
+      - http:
+          path: appointment/{id}
           method: put
           cors: true
 
-  templateDelete:
-    handler: src/handlers/templates/deleteTemplateHandler.deleteTemplateHandler
+  deleteAppointment:
+    handler: src/handlers/appointmentHandler.deleteAppointmentHandler
     events:
       - http:
-          path: templates/{templateId}
+          path: appointment/{id}
+          method: delete
+          cors: true
+
+  #================ Question Functions ================
+  createQuestion:
+    handler: src/handlers/questionHandler.createQuestionHandler
+    events:
+      - http:
+          path: question
+          method: post
+          cors: true
+
+  getQuestion:
+    handler: src/handlers/questionHandler.getQuestionHandler
+    events:
+      - http:
+          path: question/{id}
+          method: get
+          cors: true
+
+  updateQuestion:
+    handler: src/handlers/questionHandler.updateQuestionHandler
+    events:
+      - http:
+          path: question/{id}
+          method: put
+          cors: true
+
+  deleteQuestion:
+    handler: src/handlers/questionHandler.deleteQuestionHandler
+    events:
+      - http:
+          path: question/{id}
+          method: delete
+          cors: true
+
+  #================ Schedule Functions ================
+  createSchedule:
+    handler: src/handlers/scheduleHandler.createScheduleHandler
+    events:
+      - http:
+          path: schedule
+          method: post
+          cors: true
+
+  getSchedule:
+    handler: src/handlers/scheduleHandler.getScheduleHandler
+    events:
+      - http:
+          path: schedule/{id}
+          method: get
+          cors: true
+
+  updateSchedule:
+    handler: src/handlers/scheduleHandler.updateScheduleHandler
+    events:
+      - http:
+          path: schedule/{id}
+          method: put
+          cors: true
+
+  deleteSchedule:
+    handler: src/handlers/scheduleHandler.deleteScheduleHandler
+    events:
+      - http:
+          path: schedule/{id}
+          method: delete
+          cors: true
+
+  #================ Student Functions ================
+  createStudent:
+    handler: src/handlers/studentHandler.createStudentHandler
+    events:
+      - http:
+          path: student
+          method: post
+          cors: true
+
+  getStudent:
+    handler: src/handlers/studentHandler.getStudentHandler
+    events:
+      - http:
+          path: student/{id}
+          method: get
+          cors: true
+
+  updateStudent:
+    handler: src/handlers/studentHandler.updateStudentHandler
+    events:
+      - http:
+          path: student/{id}
+          method: put
+          cors: true
+
+  deleteStudent:
+    handler: src/handlers/studentHandler.deleteStudentHandler
+    events:
+      - http:
+          path: student/{id}
+          method: delete
+          cors: true
+
+  #================ Test Functions ================
+  createTest:
+    handler: src/handlers/testHandler.createTestHandler
+    events:
+      - http:
+          path: test
+          method: post
+          cors: true
+
+  getTest:
+    handler: src/handlers/testHandler.getTestHandler
+    events:
+      - http:
+          path: test/{id}
+          method: get
+          cors: true
+
+  updateTest:
+    handler: src/handlers/testHandler.updateTestHandler
+    events:
+      - http:
+          path: test/{id}
+          method: put
+          cors: true
+
+  deleteTest:
+    handler: src/handlers/testHandler.deleteTestHandler
+    events:
+      - http:
+          path: test/{id}
+          method: delete
+          cors: true
+
+  #================ Webinar Functions ================
+  createWebinar:
+    handler: src/handlers/webinarHandler.createWebinarHandler
+    events:
+      - http:
+          path: webinar
+          method: post
+          cors: true
+
+  getWebinar:
+    handler: src/handlers/webinarHandler.getWebinarHandler
+    events:
+      - http:
+          path: webinar/{id}
+          method: get
+          cors: true
+
+  updateWebinar:
+    handler: src/handlers/webinarHandler.updateWebinarHandler
+    events:
+      - http:
+          path: webinar/{id}
+          method: put
+          cors: true
+
+  deleteWebinar:
+    handler: src/handlers/webinarHandler.deleteWebinarHandler
+    events:
+      - http:
+          path: webinar/{id}
           method: delete
           cors: true
