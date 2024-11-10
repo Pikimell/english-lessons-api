@@ -86,6 +86,7 @@ Once deployed, the bot's API will be accessible via the endpoints defined in `se
 
 - **Create Appointment**: `POST /appointment`
 - **Get Appointment**: `GET /appointment/{id}`
+- **Get All Appointments**: `GET /appointment`
 - **Update Appointment**: `PUT /appointment/{id}`
 - **Delete Appointment**: `DELETE /appointment/{id}`
 - (Similar CRUD endpoints exist for `question`, `schedule`, `student`, `test`, and `webinar` resources.)
