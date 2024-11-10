@@ -1,68 +1,124 @@
-<!--
-title: 'AWS NodeJS Example'
-description: 'This template demonstrates how to deploy a simple NodeJS function running on AWS Lambda using the Serverless Framework.'
-layout: Doc
-framework: v4
-platform: AWS
-language: nodeJS
-priority: 1
-authorLink: 'https://github.com/serverless'
-authorName: 'Serverless, Inc.'
-authorAvatar: 'https://avatars1.githubusercontent.com/u/13742415?s=200&v=4'
--->
+# English Learning Telegram Bot
 
-# Serverless Framework AWS NodeJS Example
+This repository contains the backend serverless application for an English learning Telegram bot. The bot allows students to schedule lessons, take tests, register for consultations, join loyalty programs, and more. The project is built using AWS Lambda (serverless) and MongoDB with Mongoose for data storage.
 
-This template demonstrates how to deploy a simple NodeJS function running on AWS Lambda using the Serverless Framework. The deployed function does not include any event definitions or any kind of persistence (database). For more advanced configurations check out the [examples repo](https://github.com/serverless/examples/) which include use cases like API endpoints, workers triggered by SQS, persistence with DynamoDB, and scheduled tasks. For details about configuration of specific events, please refer to our [documentation](https://www.serverless.com/framework/docs/providers/aws/events/).
+## Features
+
+- **CRUD Operations** for Appointments, Questions, Schedules, Students, Tests, and Webinars.
+- **User Functionalities**:
+
+  - Take a level test
+  - Schedule consultations and interviews
+  - Choose lesson packages (individual, pair, or group sessions)
+  - Access free trial lessons
+  - View schedule and receive reminders
+  - Participate in loyalty programs
+  - Access learning resources via Telegram
+  - Receive information on webinars, marathons, and programs
+
+- **Administrator Functionalities**:
+  - Manage user records
+  - Schedule lessons and send reminders
+  - View and update lesson packages and sessions
+  - Broadcast messages and manage loyalty points
+
+## Project Structure
+
+```
+src/
+├── controllers/         # Contains controllers handling CRUD logic for each resource
+├── db/                  # Mongoose model definitions for MongoDB
+├── handlers/            # AWS Lambda handlers for each function
+├── helpers/             # Utility functions
+└── services/            # Service layer for CRUD operations on each model
+```
+
+## Setup and Installation
+
+### Prerequisites
+
+- Node.js v14+
+- MongoDB
+- AWS CLI and AWS account
+- Serverless Framework
+
+### Installation
+
+1. **Clone the repository:**
+
+   ```bash
+   git clone https://github.com/yourusername/english-learning-bot.git
+   cd english-learning-bot
+   ```
+
+1. **Install dependencies:**
+
+   ```bash
+   npm install
+   ```
+
+1. **Create ENV file:** Create Env file.
+1. **Configure ENV file:** Update Env file variables.
+
+1. **Deploy using Serverless:**
+   Ensure you are authenticated with AWS and then run:
+   ```bash
+   serverless deploy
+   ```
+
+### Environment Variables
+
+Create a `.env` file in the root directory and add the following variables:
+
+```
+TG_TOKEN=<Your TG_TOKEN String>
+MONGODB_USER=<Your MONGODB_USER String>
+MONGODB_PASSWORD=<Your MONGODB_PASSWORD String>
+MONGODB_URL=<Your MONGODB_URL String>
+MONGODB_DB=<Your MONGODB_DB String>
+```
 
 ## Usage
 
-### Deployment
+Once deployed, the bot's API will be accessible via the endpoints defined in `serverless.yml`. Each function corresponds to specific bot actions, and you can test them using tools like Postman or by connecting the bot to Telegram.
 
-In order to deploy the example, you need to run the following command:
+### Example API Endpoints
 
-```
-serverless deploy
-```
+- **Create Appointment**: `POST /appointment`
+- **Get Appointment**: `GET /appointment/{id}`
+- **Update Appointment**: `PUT /appointment/{id}`
+- **Delete Appointment**: `DELETE /appointment/{id}`
+- (Similar CRUD endpoints exist for `question`, `schedule`, `student`, `test`, and `webinar` resources.)
 
-After running deploy, you should see output similar to:
+## Development
 
-```
-Deploying "aws-node" to stage "dev" (us-east-1)
+- **Add Handlers**: Handlers for each function are in `src/handlers/`, wrapping each controller.
+- **Controllers**: CRUD logic for each resource is located in `src/controllers/`.
+- **Database Models**: All database models are defined in `src/db/models/`.
 
-✔ Service deployed to stack aws-node-dev (90s)
+## Contributing
 
-functions:
-  hello: aws-node-dev-hello (1.5 kB)
-```
+Contributions are welcome! Please fork this repository, make your changes, and submit a pull request.
 
-### Invocation
+## License
 
-After successful deployment, you can invoke the deployed function by using the following command:
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-```
-serverless invoke --function hello
-```
+## Contact
 
-Which should result in response similar to the following:
-
-```json
-{
-  "statusCode": 200,
-  "body": "{\"message\":\"Go Serverless v4.0! Your function executed successfully!\"}"
-}
-```
-
-### Local development
-
-The easiest way to develop and test your function is to use the Serverless Framework's `dev` command:
+For any questions or suggestions, please open an issue or contact [volodkaposhta@gmail.com](volodkaposhta@gmail.com).
 
 ```
-serverless dev
+
+### Explanation
+
+- **Features**: Provides a high-level overview of the bot's functionality.
+- **Project Structure**: Describes the folder organization and purpose of each directory.
+- **Setup and Installation**: Step-by-step guide for cloning, installing dependencies, and configuring the project.
+- **Environment Variables**: Specifies essential environment variables.
+- **Usage**: Lists basic usage and endpoints for interacting with the bot.
+- **Development**: Notes on adding new features or modifying the project.
+- **Testing**: Command for running tests.
+- **Contributing**: Encourages collaboration.
+- **License and Contact**: Standard sections for open-source projects.
 ```
-
-This will start a local emulator of AWS Lambda and tunnel your requests to and from AWS Lambda, allowing you to interact with your function as if it were running in the cloud.
-
-Now you can invoke the function as before, but this time the function will be executed locally. Now you can develop your function locally, invoke it, and see the results immediately without having to re-deploy.
-
-When you are done developing, don't forget to run `serverless deploy` to deploy the function to the cloud.
