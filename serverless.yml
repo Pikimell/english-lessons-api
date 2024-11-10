@@ -1,5 +1,5 @@
-org: author
-service: AWS-BACKEND
+org: PashchenkoVolodymyr
+service: english-lessons-api
 
 frameworkVersion: '3'
 
