@@ -34,6 +34,14 @@ functions:
           method: get
           cors: true
 
+  getAppointments:
+    handler: src/handlers/appointmentHandler.getAppointmentsHandler
+    events:
+      - http:
+          path: appointment
+          method: get
+          cors: true
+
   updateAppointment:
     handler: src/handlers/appointmentHandler.updateAppointmentHandler
     events:
@@ -64,6 +72,14 @@ functions:
     events:
       - http:
           path: question/{id}
+          method: get
+          cors: true
+
+  getQuestions:
+    handler: src/handlers/questionHandler.getQuestionsHandler
+    events:
+      - http:
+          path: question
           method: get
           cors: true
 
@@ -100,6 +116,14 @@ functions:
           method: get
           cors: true
 
+  getSchedules:
+    handler: src/handlers/scheduleHandler.getSchedulesHandler
+    events:
+      - http:
+          path: schedule
+          method: get
+          cors: true
+
   updateSchedule:
     handler: src/handlers/scheduleHandler.updateScheduleHandler
     events:
@@ -130,6 +154,14 @@ functions:
     events:
       - http:
           path: student/{id}
+          method: get
+          cors: true
+
+  getStudents:
+    handler: src/handlers/studentHandler.getStudentsHandler
+    events:
+      - http:
+          path: student
           method: get
           cors: true
 
@@ -166,6 +198,14 @@ functions:
           method: get
           cors: true
 
+  getTests:
+    handler: src/handlers/testHandler.getTestsHandler
+    events:
+      - http:
+          path: test
+          method: get
+          cors: true
+
   updateTest:
     handler: src/handlers/testHandler.updateTestHandler
     events:
@@ -196,6 +236,14 @@ functions:
     events:
       - http:
           path: webinar/{id}
+          method: get
+          cors: true
+
+  getWebinars:
+    handler: src/handlers/webinarHandler.getWebinarsHandler
+    events:
+      - http:
+          path: webinar
           method: get
           cors: true
 
