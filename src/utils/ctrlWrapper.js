@@ -1,12 +1,12 @@
 import { initMongoDB } from '../db/initMongoDb.js';
 import { errorHandler } from '../middleware/errorHandler.js';
-import { parseJson } from '../middleware/jsonBody.js';
+import { parseJson } from '../middleware/parseJSON.js';
 import { parseDevice, parseIP } from '../middleware/parseIP.js';
 
 export const ctrlWrapper = (controller, ...middleware) => {
   return async (event, context) => {
     try {
-      initMongoDB();
+      await initMongoDB();
 
       parseJson(event);
       parseIP(event);
