@@ -1,10 +1,10 @@
-import { ctrlWrapper } from '../../utils/ctrlWrapper.js';
+import { ctrlWrapper } from '../utils/ctrlWrapper.js';
 import {
   createTestController,
   getTestController,
   updateTestController,
   deleteTestController,
-} from '../../controllers/testController.js';
+} from '../controllers/testController.js';
 
 export const createTestHandler = async (event, context) => {
   const ctrl = ctrlWrapper(createTestController);

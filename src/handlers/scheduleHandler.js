@@ -1,10 +1,10 @@
-import { ctrlWrapper } from '../../utils/ctrlWrapper.js';
+import { ctrlWrapper } from '../utils/ctrlWrapper.js';
 import {
   createScheduleController,
   getScheduleController,
   updateScheduleController,
   deleteScheduleController,
-} from '../../controllers/scheduleController.js';
+} from '../controllers/scheduleController.js';
 
 export const createScheduleHandler = async (event, context) => {
   const ctrl = ctrlWrapper(createScheduleController);

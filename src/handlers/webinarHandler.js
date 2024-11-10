@@ -1,10 +1,10 @@
-import { ctrlWrapper } from '../../utils/ctrlWrapper.js';
+import { ctrlWrapper } from '../utils/ctrlWrapper.js';
 import {
   createWebinarController,
   getWebinarController,
   updateWebinarController,
   deleteWebinarController,
-} from '../../controllers/webinarController.js';
+} from '../controllers/webinarController.js';
 
 export const createWebinarHandler = async (event, context) => {
   const ctrl = ctrlWrapper(createWebinarController);

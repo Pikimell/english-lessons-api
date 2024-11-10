@@ -1,10 +1,10 @@
-import { ctrlWrapper } from '../../utils/ctrlWrapper.js';
+import { ctrlWrapper } from '../utils/ctrlWrapper.js';
 import {
   createQuestionController,
   getQuestionController,
   updateQuestionController,
   deleteQuestionController,
-} from '../../controllers/questionController.js';
+} from '../controllers/questionController.js';
 
 export const createQuestionHandler = async (event, context) => {
   const ctrl = ctrlWrapper(createQuestionController);

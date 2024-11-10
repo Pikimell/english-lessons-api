@@ -1,4 +1,4 @@
-org: PashchenkoVolodymyr
+org: pashchenko
 service: english-lessons-api
 
 frameworkVersion: '3'
