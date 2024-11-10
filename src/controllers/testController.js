@@ -2,6 +2,7 @@ import { response } from '../helpers/response.js';
 import {
   createTest,
   getTestById,
+  getTests,
   updateTest,
   deleteTest,
 } from '../services/testService.js';
@@ -15,6 +16,11 @@ export const createTestController = async (event, context) => {
 export const getTestController = async (event, context) => {
   const { id } = event.pathParameters;
   const test = await getTestById(id);
+  return response(200)(test);
+};
+export const getTestsController = async (event, context) => {
+  const filters = event.queryStringParameters || undefined;
+  const test = await getTests(filters);
   return response(200)(test);
 };
 

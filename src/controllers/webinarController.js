@@ -2,6 +2,7 @@ import { response } from '../helpers/response.js';
 import {
   createWebinar,
   getWebinarById,
+  getWebinars,
   updateWebinar,
   deleteWebinar,
 } from '../services/webinarService.js';
@@ -15,6 +16,11 @@ export const createWebinarController = async (event, context) => {
 export const getWebinarController = async (event, context) => {
   const { id } = event.pathParameters;
   const webinar = await getWebinarById(id);
+  return response(200)(webinar);
+};
+export const getWebinarsController = async (event, context) => {
+  const filters = event.queryStringParameters || undefined;
+  const webinar = await getWebinars(filters);
   return response(200)(webinar);
 };
 
