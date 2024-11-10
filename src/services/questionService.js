@@ -23,6 +23,15 @@ export const getQuestionById = async (id) => {
   }
 };
 
+export const getQuestions = async (filters) => {
+  try {
+    const questions = await QuestionCollection.find(filters);
+    return questions;
+  } catch (error) {
+    throw createHttpError(400, `Не вдалося отримати питання: ${error.message}`);
+  }
+};
+
 export const updateQuestion = async (id, updateData) => {
   try {
     const question = await QuestionCollection.findByIdAndUpdate(

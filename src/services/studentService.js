@@ -28,6 +28,17 @@ export const getStudentById = async (id) => {
     );
   }
 };
+export const getStudents = async (filters) => {
+  try {
+    const students = await StudentCollection.find(filters);
+    return students;
+  } catch (error) {
+    throw createHttpError(
+      400,
+      `Не вдалося отримати студентів: ${error.message}`,
+    );
+  }
+};
 
 export const updateStudent = async (id, updateData) => {
   try {

@@ -23,6 +23,15 @@ export const getScheduleById = async (id) => {
   }
 };
 
+export const getSchedules = async (filters) => {
+  try {
+    const schedules = await ScheduleCollection.find(filters);
+    return schedule;
+  } catch (error) {
+    throw createHttpError(400, `Не вдалося отримати розклад: ${error.message}`);
+  }
+};
+
 export const updateSchedule = async (id, updateData) => {
   try {
     const schedule = await ScheduleCollection.findByIdAndUpdate(

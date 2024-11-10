@@ -22,6 +22,14 @@ export const getAppointmentById = async (id) => {
     throw createHttpError(400, `Не вдалося отримати запис: ${error.message}`);
   }
 };
+export const getAppointments = async (filters) => {
+  try {
+    const appointments = await AppointmentCollection.find(filters);
+    return appointments;
+  } catch (error) {
+    throw createHttpError(400, `Не вдалося отримати записи: ${error.message}`);
+  }
+};
 
 export const updateAppointment = async (id, updateData) => {
   try {

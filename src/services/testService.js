@@ -23,6 +23,18 @@ export const getTestById = async (id) => {
   }
 };
 
+export const getTests = async (filters) => {
+  try {
+    const testList = await TestCollection.find(filters);
+    return testList;
+  } catch (error) {
+    throw createHttpError(
+      400,
+      `Не вдалося отримати список тестів: ${error.message}`,
+    );
+  }
+};
+
 export const updateTest = async (id, updateData) => {
   try {
     const test = await TestCollection.findByIdAndUpdate(id, updateData, {

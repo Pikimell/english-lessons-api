@@ -23,6 +23,18 @@ export const getWebinarById = async (id) => {
   }
 };
 
+export const getWebinars = async (filters) => {
+  try {
+    const webinarList = await WebinarCollection.find(filters);
+    return webinarList;
+  } catch (error) {
+    throw createHttpError(
+      400,
+      `Не вдалося отримати список вебінарів: ${error.message}`,
+    );
+  }
+};
+
 export const updateWebinar = async (id, updateData) => {
   try {
     const webinar = await WebinarCollection.findByIdAndUpdate(id, updateData, {
