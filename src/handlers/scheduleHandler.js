@@ -2,6 +2,7 @@ import { ctrlWrapper } from '../utils/ctrlWrapper.js';
 import {
   createScheduleController,
   getScheduleController,
+  getSchedulesController,
   updateScheduleController,
   deleteScheduleController,
 } from '../controllers/scheduleController.js';
@@ -13,6 +14,10 @@ export const createScheduleHandler = async (event, context) => {
 
 export const getScheduleHandler = async (event, context) => {
   const ctrl = ctrlWrapper(getScheduleController);
+  return await ctrl(event, context);
+};
+export const getSchedulesHandler = async (event, context) => {
+  const ctrl = ctrlWrapper(getSchedulesController);
   return await ctrl(event, context);
 };
 

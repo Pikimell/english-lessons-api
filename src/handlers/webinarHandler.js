@@ -2,6 +2,7 @@ import { ctrlWrapper } from '../utils/ctrlWrapper.js';
 import {
   createWebinarController,
   getWebinarController,
+  getWebinarsController,
   updateWebinarController,
   deleteWebinarController,
 } from '../controllers/webinarController.js';
@@ -13,6 +14,10 @@ export const createWebinarHandler = async (event, context) => {
 
 export const getWebinarHandler = async (event, context) => {
   const ctrl = ctrlWrapper(getWebinarController);
+  return await ctrl(event, context);
+};
+export const getWebinarsHandler = async (event, context) => {
+  const ctrl = ctrlWrapper(getWebinarsController);
   return await ctrl(event, context);
 };
 

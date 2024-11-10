@@ -2,6 +2,7 @@ import { ctrlWrapper } from '../utils/ctrlWrapper.js';
 import {
   createStudentController,
   getStudentController,
+  getStudentsController,
   updateStudentController,
   deleteStudentController,
 } from '../controllers/studentController.js';
@@ -13,6 +14,10 @@ export const createStudentHandler = async (event, context) => {
 
 export const getStudentHandler = async (event, context) => {
   const ctrl = ctrlWrapper(getStudentController);
+  return await ctrl(event, context);
+};
+export const getStudentsHandler = async (event, context) => {
+  const ctrl = ctrlWrapper(getStudentsController);
   return await ctrl(event, context);
 };
 
